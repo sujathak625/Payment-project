@@ -3,7 +3,7 @@ package com.cgi.fsdc.service.Impl;
 import com.cgi.fsdc.entity.Customer;
 import com.cgi.fsdc.model.DeviceAuthResponse;
 import com.cgi.fsdc.repository.CustomerRepository;
-import com.cgi.fsdc.utilities.YesNo;
+import com.cgi.fsdc.utilities.enums.YesNo;
 import org.springframework.stereotype.Service;
 
 import com.cgi.fsdc.service.DeviceService;

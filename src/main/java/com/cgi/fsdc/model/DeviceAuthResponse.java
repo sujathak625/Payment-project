@@ -1,6 +1,6 @@
 package com.cgi.fsdc.model;
 
-import com.cgi.fsdc.utilities.YesNo;
+import com.cgi.fsdc.utilities.enums.YesNo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

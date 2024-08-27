@@ -1,6 +1,6 @@
 package com.cgi.fsdc.model;
 
-import com.cgi.fsdc.utilities.Currency;
+import com.cgi.fsdc.utilities.enums.Currency;
 import lombok.Data;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
@@ -22,7 +22,7 @@ public class TransactionRequest {
     private Currency currency;
 
     @NotNull(message = "{customerName.notNull}")
-    private String customerName;
+    private Integer customerId;
 
     @NotNull(message = "{deviceId.notNull}")
     private String deviceId;

@@ -3,7 +3,7 @@ package com.cgi.fsdc.controller;
 import com.cgi.fsdc.model.DeviceAuthRequest;
 import com.cgi.fsdc.model.DeviceAuthResponse;
 import com.cgi.fsdc.service.DeviceService;
-import com.cgi.fsdc.utilities.YesNo;
+import com.cgi.fsdc.utilities.enums.YesNo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.cgi.fsdc.entity.Transaction;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.time.Instant;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
-    List<Transaction> findByCustomerIdAndCreateTimeAfter(Integer customerId, LocalDateTime createTime);
+    List<Transaction> findByCustomerIdAndCreateTimeAfter(Integer customerId, Instant createTime);
 }

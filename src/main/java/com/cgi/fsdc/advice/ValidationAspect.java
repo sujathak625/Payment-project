@@ -26,7 +26,7 @@ public class ValidationAspect {
     public void controllerLayerPointcut() {
     }
 
-       @AfterThrowing(pointcut = "controllerLayerPointcut()", throwing = "ex")
+    @AfterThrowing(pointcut = "controllerLayerPointcut()", throwing = "ex")
     public ResponseEntity<ErrorResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {
 
         Map<String, String> validationErrors = new HashMap<>();

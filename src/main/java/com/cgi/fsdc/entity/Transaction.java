@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.cgi.fsdc.utilities.Currency;
+import com.cgi.fsdc.utilities.enums.Currency;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,6 @@ import lombok.Builder;
 @AllArgsConstructor
 @Builder
 public class Transaction {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "transaction_id")
@@ -41,8 +40,8 @@ public class Transaction {
 	@Column(name = "create_time")
 	private Instant createTime;
 
-	@Column(name = "customer_name")
-	private String customerName;
+	@Column(name = "cust_id")
+	private Integer customerId;
 
 	@Column(name = "device_id")
 	private String deviceId;
