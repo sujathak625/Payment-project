@@ -1,7 +1,7 @@
 package com.cgi.fsdc.service.Impl;
 
 import com.cgi.fsdc.entity.Customer;
-import com.cgi.fsdc.model.DeviceAuthResponse;
+import com.cgi.fsdc.model.response.DeviceAuthResponse;
 import com.cgi.fsdc.repository.CustomerRepository;
 import com.cgi.fsdc.utilities.enums.YesNo;
 import org.springframework.stereotype.Service;
@@ -26,5 +26,4 @@ public class DeviceServiceImpl implements DeviceService {
 		}
 		return new DeviceAuthResponse(YesNo.NO, "Device not authorized");
 	}
-
 }

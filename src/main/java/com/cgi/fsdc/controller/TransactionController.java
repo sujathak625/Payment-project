@@ -1,9 +1,9 @@
 package com.cgi.fsdc.controller;
 
 import com.cgi.fsdc.entity.Customer;
-import com.cgi.fsdc.model.DeviceAuthRequest;
-import com.cgi.fsdc.model.DeviceAuthResponse;
-import com.cgi.fsdc.model.TransactionRequest;
+import com.cgi.fsdc.model.request.DeviceAuthRequest;
+import com.cgi.fsdc.model.response.DeviceAuthResponse;
+import com.cgi.fsdc.model.request.TransactionRequest;
 import com.cgi.fsdc.service.CustomerService;
 import com.cgi.fsdc.service.TransactionService;
 import com.cgi.fsdc.service.FraudDetectionService;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class TransactionController {
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<String> createTransaction(@RequestBody TransactionRequest transactionRequest) {
+	public ResponseEntity<String> createTransaction(@Valid @RequestBody TransactionRequest transactionRequest) {
 		String deviceAuthUrl = String.format("%s/authorizeCustomer", deviceAuthBaseUrl);
 
 		DeviceAuthRequest deviceAuthRequest = new DeviceAuthRequest(

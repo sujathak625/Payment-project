@@ -28,4 +28,9 @@ public class CustomerServiceImpl implements CustomerService {
         int updatedRows = customerRepository.updateCardStatusByCustomerId(customerId, CardStatus.BLOCKED);
         return updatedRows > 0;
     }
+
+    @Override
+    public void saveCustomer(Customer customer) {
+        customerRepository.saveAndFlush(customer);
+    }
 }

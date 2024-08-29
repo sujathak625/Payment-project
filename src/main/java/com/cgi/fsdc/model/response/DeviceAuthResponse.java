@@ -1,4 +1,4 @@
-package com.cgi.fsdc.model;
+package com.cgi.fsdc.model.response;
 
 import com.cgi.fsdc.utilities.enums.YesNo;
 

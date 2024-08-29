@@ -1,8 +1,8 @@
 package com.cgi.fsdc.utilities.enums;
 
-public enum CustomerStatus {
+public enum CardStatus {
     ACTIVE,
     SUSPENDED,
     BLOCKED,
-    INACTIVE;
+    INACTIVE
 }

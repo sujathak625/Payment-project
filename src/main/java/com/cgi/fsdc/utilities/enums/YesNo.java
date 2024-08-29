@@ -1,4 +1,4 @@
-package com.cgi.fsdc.utilities;
+package com.cgi.fsdc.utilities.enums;
 
 public enum YesNo {
     YES,

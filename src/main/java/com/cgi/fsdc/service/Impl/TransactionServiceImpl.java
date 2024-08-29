@@ -1,7 +1,7 @@
 package com.cgi.fsdc.service.Impl;
 
 import com.cgi.fsdc.entity.Transaction;
-import com.cgi.fsdc.model.TransactionRequest;
+import com.cgi.fsdc.model.request.TransactionRequest;
 import com.cgi.fsdc.repository.TransactionRepository;
 import com.cgi.fsdc.service.CustomerService;
 import com.cgi.fsdc.service.TransactionService;

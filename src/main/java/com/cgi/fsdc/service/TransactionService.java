@@ -1,6 +1,6 @@
 package com.cgi.fsdc.service;
 
-import com.cgi.fsdc.model.TransactionRequest;
+import com.cgi.fsdc.model.request.TransactionRequest;
 
 public interface TransactionService {
 

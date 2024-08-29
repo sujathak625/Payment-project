@@ -1,2 +1,5 @@
-package com.cgi.fsdc.utilities.enums;public class Currency {
+package com.cgi.fsdc.utilities.enums;
+
+public enum Currency {
+    EUR, USD, INR
 }

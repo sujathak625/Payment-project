@@ -1,6 +1,6 @@
 package com.cgi.fsdc.service;
 
-import com.cgi.fsdc.model.DeviceAuthResponse;
+import com.cgi.fsdc.model.response.DeviceAuthResponse;
 
 public interface DeviceService {
 

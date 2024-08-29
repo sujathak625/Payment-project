@@ -22,10 +22,7 @@ public class FraudDetectionServiceImpl implements FraudDetectionService {
     public boolean detectFraud(Integer customerId) {
         Instant twoHoursAgo = Instant.now().minus(2, ChronoUnit.HOURS);
         List<Transaction> transactions = transactionRepository.findByCustomerIdAndCreateTimeAfter(customerId, twoHoursAgo);
-        long deviceCount = transactions.stream()
-                .map(Transaction::getDeviceId)
-                .distinct()
-                .count();
+
         return transactions.size() >= 50;
     }
 }

@@ -1,5 +1,6 @@
 package com.cgi.fsdc.utilities;
 
+import com.cgi.fsdc.exception.EncryptionException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -31,10 +32,11 @@ public class SecurityUtils {
             byte[] encryptedBytes = cipher.doFinal(data.getBytes());
             return Base64.getEncoder().encodeToString(encryptedBytes);
         } catch (GeneralSecurityException e) {
-            throw new RuntimeException("Error during encryption", e);
+            throw new EncryptionException("Error during encryption", e);
         }
     }
 
+    /* This method is not used in this project. */
     public String decrypt(String encryptedData) {
         try {
             Cipher cipher = Cipher.getInstance("AES");
@@ -43,7 +45,7 @@ public class SecurityUtils {
             byte[] decryptedBytes = cipher.doFinal(decodedBytes);
             return new String(decryptedBytes);
         } catch (GeneralSecurityException e) {
-            throw new RuntimeException("Error during decryption", e);
+            throw new EncryptionException("Error during decryption", e);
         }
     }
 }

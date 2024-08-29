@@ -1,7 +1,7 @@
 package com.cgi.fsdc.controller;
 
-import com.cgi.fsdc.model.DeviceAuthRequest;
-import com.cgi.fsdc.model.DeviceAuthResponse;
+import com.cgi.fsdc.model.request.DeviceAuthRequest;
+import com.cgi.fsdc.model.response.DeviceAuthResponse;
 import com.cgi.fsdc.service.DeviceService;
 import com.cgi.fsdc.utilities.enums.YesNo;
 import org.springframework.http.ResponseEntity;
