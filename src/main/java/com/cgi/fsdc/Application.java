@@ -27,9 +27,11 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
+	// Test Data for API Testing
 	@Bean
 	CommandLineRunner initCustomerTransactionData(CustomerRepository customerRepository, TransactionRepository transactionRepository) {
 		return args -> {
+			// 10 customer Records for testing device authorization
 			Customer sita = customerRepository.save(new Customer(100002, "Sita", "Mumbai, India", "DEVICE5678", "sita@gmail.com", CardStatus.ACTIVE));
 			Customer amit = customerRepository.save(new Customer(100001, "Amit", "Delhi, India", "DEVICE1234", "amit@gmail.com", CardStatus.ACTIVE));
 			Customer hans = customerRepository.save(new Customer(100003, "Hans", "Berlin, Germany", "DEVICE9101", "hans@gmail.com", CardStatus.ACTIVE));
@@ -56,6 +58,8 @@ public class Application {
 
 			Random random = new Random();
 			Instant now = Instant.now();
+
+			// Adding 55 transactions for Sita in last two years for case fraud trasnactions detected
 			for (int i = 0; i < 55; i++) {
 				Instant transactionTime = now.minus(i * 2, ChronoUnit.MINUTES);
 				transactionRepository.save(Transaction.builder()
@@ -70,7 +74,22 @@ public class Application {
 						.build());
 			}
 
-			Customer[] otherCustomers = {amit, hans, greta, john, emily, wei, li, vladimir, olga};
+			// Adding 52 transactions for Amit with varying dates over the last year. Those are not considered as fraud trasnactions
+			for (int i = 0; i < 52; i++) {
+				Instant transactionTime = now.minus(i * 7, ChronoUnit.DAYS);
+				transactionRepository.save(Transaction.builder()
+						.customerId(amit.getCustId())
+						.amount(BigDecimal.valueOf(1 + random.nextInt(3000)))
+						.currency(Currency.EUR)
+						.deviceId(amit.getDeviceId())
+						.status("SUCCESS")
+						.cardNumber(customerCardMap.get(amit.getCustId()))
+						.expiryDate(LocalDate.of(2028, 12, 31))
+						.createTime(transactionTime)
+						.build());
+			}
+
+			Customer[] otherCustomers = {hans, greta, john, emily, wei, li, vladimir, olga};
 			for (Customer customer : otherCustomers) {
 				transactionRepository.save(Transaction.builder()
 						.customerId(customer.getCustId())
@@ -85,6 +104,7 @@ public class Application {
 			}
 		};
 	}
+
 
 	private String generateCardNumber() {
 		Random random = new Random();

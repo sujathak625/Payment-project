@@ -23,7 +23,6 @@ public class TransactionRequest {
     @Min(value = 1, message = "{customerId.min}")
     private Integer customerId;
 
-    @NotNull(message = "{deviceId.notNull}")
     @NotEmpty(message = "{deviceId.notEmpty}")
     @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "{deviceId.pattern}")
     private String deviceId;

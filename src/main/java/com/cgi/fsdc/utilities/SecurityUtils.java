@@ -36,7 +36,6 @@ public class SecurityUtils {
         }
     }
 
-    /* This method is not used in this project. */
     public String decrypt(String encryptedData) {
         try {
             Cipher cipher = Cipher.getInstance("AES");

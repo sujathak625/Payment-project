@@ -77,10 +77,10 @@ public class TransactionController {
 		boolean isFraudulent = fraudDetectionService.detectFraud(customerId);
 		boolean isCardBlocked = transactionService.blockCard(customerId, isFraudulent);
 		if (isFraudulent && isCardBlocked) {
-			String fraudMessage = messageSource.getMessage("fraud.detection.fraud", new Object[]{customerId}, Locale.getDefault());
+			String fraudMessage = messageSource.getMessage("fraud.detection.fraud", new Object[]{String.valueOf(customerId)}, Locale.getDefault());
 			return ResponseEntity.status(403).body(fraudMessage);
 		} else {
-			String noFraudMessage = messageSource.getMessage("fraud.detection.noFraud", new Object[]{customerId}, Locale.getDefault());
+			String noFraudMessage = messageSource.getMessage("fraud.detection.noFraud", new Object[]{String.valueOf(customerId)}, Locale.getDefault());
 			return ResponseEntity.ok(noFraudMessage);
 		}
 	}

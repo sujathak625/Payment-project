@@ -4,6 +4,6 @@ import com.cgi.fsdc.model.request.TransactionRequest;
 
 public interface TransactionService {
 
-	void saveTransactionDetails(TransactionRequest transactionRequest);
+	boolean saveTransactionDetails(TransactionRequest transactionRequest);
 	boolean blockCard(int customerId, boolean isFraudSuspected);
 }
